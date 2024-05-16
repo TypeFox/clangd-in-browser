@@ -1,5 +1,9 @@
+import * as fs from "node:fs";
 import child_process from "node:child_process";
 
+if (!fs.existsSync('./public/wasm')) {
+  fs.mkdirSync('./public/wasm');
+}
 child_process.execFileSync('docker', [ 'create', '--name', 'extract-clangd', 'clangd-in-browser-clangd-build' ]);
 child_process.execFileSync('docker', [ 'cp', 'extract-clangd:/builder/llvm-project/build/bin/clangd.js', './public/wasm']);
 child_process.execFileSync('docker', [ 'cp', 'extract-clangd:/builder/llvm-project/build/bin/clangd.wasm', './public/wasm']);

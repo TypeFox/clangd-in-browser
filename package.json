@@ -11,7 +11,7 @@
     "build": "pnpm run clean && tsc && vite build",
     "build:watch": "pnpm run clean && tsc && vite build --watch",
     "preview": "vite preview",
-    "extract:docker": "vite-node ./scripts/extractDockerFiles.ts"
+    "extract:docker": "vite-node --config ./scripts/vite.node.ts ./scripts/extractDockerFiles.ts"
   },
   "devDependencies": {
     "@types/emscripten": "^1.39.10",
