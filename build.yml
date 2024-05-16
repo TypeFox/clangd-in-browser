@@ -1,0 +1,6 @@
+services:
+  clangd-build:
+    build:
+      dockerfile: ./build.Dockerfile
+      context: .
+    container_name: clangd-build
